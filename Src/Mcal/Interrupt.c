@@ -1,0 +1,20 @@
+#include "Std_Types.h"
+#include "Interrupt.h"
+#include "Mcu_Hw.h"
+
+
+void (*ADHAM)(void);
+
+////////////////////////////////////////////////////////////////////////////
+void SysTick_Handler(void)
+{
+	  (*ADHAM)();
+}
+/////////////////////////////////////////////////////////////////////////////////////
+void CallBackISR(void(*UserIsr)(void)){
+
+             ADHAM= UserIsr;
+
+}
+
+
